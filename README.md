@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Code Lio - SaaS Code Editor
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://code-lio.vercel.app)
+[![Author](https://img.shields.io/badge/author-EL--ILUMINADO-blue.svg)](https://github.com/EL-ILUMINADO)
 
-First, run the development server:
+**Code Lio** is a powerful, modern SaaS-based code editor built for developers who need a seamless coding experience directly in their browser. It features real-time code execution, snippet management, and community interaction, all wrapped in a sleek, responsive interface.
+
+## 🚀 Features
+
+- **Multi-Language Support**: Write and execute code in various programming languages directly from your browser.
+- **Monaco Editor Integration**: Enjoy a VS Code-like editing experience with syntax highlighting, auto-completion, and error detection.
+- **Code Execution Engine**: Powered by the Piston API to run code safely and efficiently.
+- **Snippet Management**: Save your favorite code snippets, title them, and organize them for easy access.
+- **Community & Social**:
+  - **Star Snippets**: Like and save useful snippets from other users.
+  - **Comments**: Engage with the community by discussing code snippets.
+- **Pro Subscription (Lemon Squeezy)**:
+  - Unlimited code executions.
+  - Exclusive Pro badge.
+  - Priority support.
+- **Authentication**: Secure and easy sign-in via Clerk (GitHub, Google, Email).
+- **Responsive Design**: Fully responsive UI built with Tailwind CSS and Framer Motion for smooth animations.
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Frontend**: [React 19](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/)
+- **Backend / Database**: [Convex](https://www.convex.dev/) (Real-time database & backend functions)
+- **Authentication**: [Clerk](https://clerk.com/)
+- **Code Editor**: [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react)
+- **Payments**: [Lemon Squeezy](https://www.lemonsqueezy.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── convex/             # Backend functions & schema (Convex)
+├── public/             # Static assets
+├── src/
+│   ├── app/            # Next.js App Router pages & layouts
+│   ├── components/     # Reusable UI components
+│   ├── hooks/          # Custom React hooks
+│   ├── store/          # State management (Zustand)
+│   ├── types/          # TypeScript type definitions
+│   └── middleware.ts   # Clerk authentication middleware
+├── .env.local          # Environment variables
+└── package.json        # Project dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ensure you have the following installed:
 
-## Learn More
+- Node.js (v18 or later)
+- npm, yarn, pnpm, or bun
 
-To learn more about Next.js, take a look at the following resources:
+### Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Clone the repository:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    git clone https://github.com/EL-ILUMINADO/code-lio.git
+    cd code-lio
+    ```
 
-## Deploy on Vercel
+2.  **Install dependencies:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3.  **Set up Environment Variables:**
+
+    Create a `.env.local` file in the root directory and add the following keys:
+
+    ```env
+    # Convex
+    CONVEX_DEPLOYMENT=
+    NEXT_PUBLIC_CONVEX_URL=
+
+    # Clerk Auth
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+    CLERK_SECRET_KEY=
+
+    # Lemon Squeezy (Payments)
+    LEMON_SQUEEZY_API_KEY=
+    LEMON_SQUEEZY_WEBHOOK_SECRET=
+    NEXT_PUBLIC_LEMON_SQUEEZY_STORE_ID=
+    ```
+
+4.  **Run the Development Server:**
+
+    You need to run both the Next.js frontend and the Convex backend function sync:
+
+    ```bash
+    npm run dev
+    ```
+
+    _Note: Ensure `npx convex dev` is running (usually handled by the dev script or run separately)._
+
+5.  **Open the App:**
+
+    Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🚀 Deployment
+
+The easiest way to deploy this application is using **Vercel**.
+
+1.  Push your code to a GitHub repository.
+2.  Import the project into Vercel.
+3.  Add the environment variables (from `.env.local`) in the Vercel project settings.
+4.  Deploy!
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by [EL-ILUMINADO](https://github.com/EL-ILUMINADO)
